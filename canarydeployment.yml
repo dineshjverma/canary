@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-canary
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http
+  template:
+    metadata:
+      labels:
+        app: http
+        track: canary
+        version: 2
+    spec:
+      containers:
+      - name: version2
+        image: docker.io/dineshverma877/canary:version2
+        ports:
+        - containerPort: 80
