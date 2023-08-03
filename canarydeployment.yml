@@ -12,7 +12,6 @@ spec:
       labels:
         app: http
         track: canary
-        version: 2
     spec:
       containers:
       - name: version2
